@@ -1,0 +1,762 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: #ffffff;
+    background-color: #000;
+}
+
+/* Parallax Container */
+.parallax {
+    height: 500vh; /* 5 times the viewport height for 5 sections */
+    overflow-x: hidden;
+    overflow-y: auto;
+    perspective: 1px;
+    position: relative;
+    background-color: #000;
+}
+
+/* Stars Animation */
+.stars, .stars2, .stars3 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background: transparent;
+    z-index: 0;
+}
+
+.stars {
+    background-image: radial-gradient(2px 2px at 20px 30px, #fff, rgba(0,0,0,0)),
+                      radial-gradient(2px 2px at 40px 70px, #fff, rgba(0,0,0,0)),
+                      radial-gradient(2px 2px at 50px 160px, #fff, rgba(0,0,0,0)),
+                      radial-gradient(2px 2px at 90px 40px, #fff, rgba(0,0,0,0)),
+                      radial-gradient(2px 2px at 130px 80px, #fff, rgba(0,0,0,0));
+    background-repeat: repeat;
+    background-size: 200px 200px;
+    animation: twinkle 4s infinite;
+}
+
+.stars2 {
+    background-image: radial-gradient(2px 2px at 150px 150px, #fff, rgba(0,0,0,0)),
+                      radial-gradient(2px 2px at 100px 50px, #fff, rgba(0,0,0,0)),
+                      radial-gradient(2px 2px at 40px 60px, #fff, rgba(0,0,0,0)),
+                      radial-gradient(2px 2px at 80px 120px, #fff, rgba(0,0,0,0)),
+                      radial-gradient(2px 2px at 0px 0px, #fff, rgba(0,0,0,0));
+    background-repeat: repeat;
+    background-size: 300px 300px;
+    animation: twinkle 6s infinite;
+}
+
+.stars3 {
+    background-image: radial-gradient(2px 2px at 100px 100px, #fff, rgba(0,0,0,0)),
+                      radial-gradient(2px 2px at 200px 200px, #fff, rgba(0,0,0,0)),
+                      radial-gradient(2px 2px at 300px 300px, #fff, rgba(0,0,0,0)),
+                      radial-gradient(2px 2px at 400px 400px, #fff, rgba(0,0,0,0)),
+                      radial-gradient(2px 2px at 500px 500px, #fff, rgba(0,0,0,0));
+    background-repeat: repeat;
+    background-size: 400px 400px;
+    animation: twinkle 8s infinite;
+}
+
+@keyframes twinkle {
+    0% { opacity: 0.3; }
+    50% { opacity: 1; }
+    100% { opacity: 0.3; }
+}
+
+/* Background Layers */
+.layer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    will-change: transform, opacity, scale;
+    z-index: -1;
+    opacity: 0;
+    transform: scale(0.1);
+    transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+}
+
+.layer-1 {
+    background: url('images/space-odyssey.jpg') no-repeat center center/cover;
+    transform: scale(0.1);
+    opacity: 0;
+}
+
+.layer-2 {
+    background: url('images/saturn.jpg') no-repeat center center/cover;
+    transform: scale(0.1);
+    opacity: 0;
+}
+
+.layer-3 {
+    background: url('images/a-breathtaking-view-of-the-cosmos-revealing-the-secrets-of-moon-and-planets-photo.jpg') no-repeat center center/cover;
+    transform: scale(0.1);
+    opacity: 0;
+}
+
+.layer-4 {
+    background: url('images/space-odyssey.jpg') no-repeat center center/cover;
+    transform: scale(0.1);
+    opacity: 0;
+}
+
+.layer-5 {
+    background: url('images/saturn.jpg') no-repeat center center/cover;
+    transform: scale(0.1);
+    opacity: 0;
+}
+
+/* Add styles for when layers are visible */
+.layer.visible {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Planet Container Styles */
+.planet-container {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin: 0 auto 2rem;
+    opacity: 0;
+    transform: scale(0.5);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.planet-container.visible {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.planet {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    background: radial-gradient(circle at 30% 30%, #fff, #ffd700);
+    box-shadow: 0 0 50px rgba(255, 215, 0, 0.5);
+    animation: rotate 20s linear infinite;
+}
+
+.planet-1 { 
+    background: radial-gradient(circle at 30% 30%, #fff, #ff6b6b);
+    box-shadow: 0 0 50px rgba(255, 107, 107, 0.5);
+}
+
+.planet-2 { 
+    background: radial-gradient(circle at 30% 30%, #fff, #ffd700);
+    box-shadow: 0 0 50px rgba(255, 215, 0, 0.5);
+}
+
+.planet-3 { 
+    background: radial-gradient(circle at 30% 30%, #fff, #ffa500);
+    box-shadow: 0 0 50px rgba(255, 165, 0, 0.5);
+}
+
+.planet-4 { 
+    background: radial-gradient(circle at 30% 30%, #fff, #4169e1);
+    box-shadow: 0 0 50px rgba(65, 105, 225, 0.5);
+}
+
+.planet-info {
+    position: absolute;
+    bottom: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+}
+
+.planet-info h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: #fff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.planet-info p {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 0;
+}
+
+/* Add rings to Saturn */
+.planet-3::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 180px;
+    height: 40px;
+    background: linear-gradient(90deg, 
+        rgba(255, 165, 0, 0.2) 0%,
+        rgba(255, 165, 0, 0.4) 50%,
+        rgba(255, 165, 0, 0.2) 100%);
+    border-radius: 50%;
+    animation: rotate 10s linear infinite;
+}
+
+/* Add atmosphere to Neptune */
+.planet-4::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 30% 30%, 
+        rgba(65, 105, 225, 0.2),
+        transparent 70%);
+    border-radius: 50%;
+    animation: pulse 4s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 0.5; }
+    50% { transform: scale(1.1); opacity: 0.8; }
+    100% { transform: scale(1); opacity: 0.5; }
+}
+
+/* Update existing planet styles */
+.planet {
+    transition: transform 0.3s ease;
+}
+
+.planet:hover {
+    transform: scale(1.1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .planet-container {
+        width: 150px;
+        height: 150px;
+    }
+
+    .planet {
+        width: 100px;
+        height: 100px;
+        top: 25px;
+        left: 25px;
+    }
+
+    .planet-3::after {
+        width: 130px;
+        height: 30px;
+    }
+
+    .planet-info {
+        bottom: -30px;
+    }
+
+    .planet-info h3 {
+        font-size: 1.2rem;
+    }
+
+    .planet-info p {
+        font-size: 0.9rem;
+    }
+
+    .crater-1 {
+        width: 20px;
+        height: 20px;
+    }
+
+    .crater-2 {
+        width: 15px;
+        height: 15px;
+    }
+
+    .crater-3 {
+        width: 10px;
+        height: 10px;
+    }
+
+    .storm-1 {
+        width: 25px;
+        height: 25px;
+    }
+
+    .storm-2 {
+        width: 20px;
+        height: 20px;
+    }
+
+    .storm-3 {
+        width: 15px;
+        height: 15px;
+    }
+
+    .ring-1 {
+        width: 130px;
+        height: 30px;
+    }
+
+    .ring-2 {
+        width: 150px;
+        height: 20px;
+    }
+
+    .ring-3 {
+        width: 170px;
+        height: 15px;
+    }
+
+    .planet-description {
+        max-width: 250px;
+        font-size: 0.8rem;
+    }
+
+    .planet-facts li {
+        font-size: 0.7rem;
+    }
+}
+
+/* Section Styles */
+.section {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+    z-index: 1;
+}
+
+.content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    color: #fff;
+    padding: 2rem;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Typography */
+h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(45deg, #fff, #ffd700);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+}
+
+h2 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: #fff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+/* Buttons */
+.cta-button {
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+    border: none;
+    border-radius: 30px;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: 0.5s;
+}
+
+.cta-button:hover::before {
+    left: 100%;
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+}
+
+/* Feature Grid */
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.feature {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.feature:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+.feature i {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #ffd700;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+/* Feature Image Styles */
+.feature-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.feature:hover .feature-image {
+    transform: scale(1.05);
+}
+
+/* Gallery Grid */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.gallery-item {
+    position: relative;
+    height: 300px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform 0.5s ease;
+}
+
+.gallery-item:nth-child(1) {
+    background: url('images/space-odyssey.jpg') no-repeat center center/cover;
+}
+
+.gallery-item:nth-child(2) {
+    background: url('images/saturn.jpg') no-repeat center center/cover;
+}
+
+.gallery-item:nth-child(3) {
+    background: url('images/a-breathtaking-view-of-the-cosmos-revealing-the-secrets-of-moon-and-planets-photo.jpg') no-repeat center center/cover;
+}
+
+.gallery-item:hover {
+    transform: scale(1.05);
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.gallery-item:hover .overlay {
+    opacity: 1;
+}
+
+.overlay i {
+    font-size: 2rem;
+    color: #fff;
+    transform: scale(0);
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover .overlay i {
+    transform: scale(1);
+}
+
+/* Contact Form */
+.contact-form {
+    display: flex;
+    gap: 1rem;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.contact-form input {
+    flex: 1;
+    padding: 1rem;
+    border: none;
+    border-radius: 30px;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    font-size: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.contact-form input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.contact-form button {
+    padding: 1rem 2rem;
+    background: linear-gradient(45deg, #4CAF50, #45a049);
+    border: none;
+    border-radius: 30px;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.contact-form button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(76, 175, 80, 0.4);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    .contact-form {
+        flex-direction: column;
+    }
+
+    .feature-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .feature-image {
+        height: 150px;
+    }
+
+    .gallery-item img {
+        height: 250px;
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.content {
+    animation: fadeIn 1s ease-out;
+}
+
+/* Planet Details Styles */
+.planet-details {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+/* Crater Styles for Mars */
+.crater {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.3);
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.crater-1 {
+    width: 30px;
+    height: 30px;
+    top: 20%;
+    left: 20%;
+}
+
+.crater-2 {
+    width: 25px;
+    height: 25px;
+    top: 40%;
+    right: 25%;
+}
+
+.crater-3 {
+    width: 20px;
+    height: 20px;
+    bottom: 30%;
+    left: 40%;
+}
+
+/* Storm Styles for Jupiter and Neptune */
+.storm {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    animation: rotate 15s linear infinite;
+}
+
+.storm-1 {
+    width: 40px;
+    height: 40px;
+    top: 20%;
+    left: 20%;
+}
+
+.storm-2 {
+    width: 35px;
+    height: 35px;
+    top: 40%;
+    right: 25%;
+}
+
+.storm-3 {
+    width: 30px;
+    height: 30px;
+    bottom: 30%;
+    left: 40%;
+}
+
+/* Ring Styles for Saturn */
+.ring {
+    position: absolute;
+    background: linear-gradient(90deg, 
+        rgba(255, 165, 0, 0.2) 0%,
+        rgba(255, 165, 0, 0.4) 50%,
+        rgba(255, 165, 0, 0.2) 100%);
+    border-radius: 50%;
+    animation: rotate 10s linear infinite;
+}
+
+.ring-1 {
+    width: 180px;
+    height: 40px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.ring-2 {
+    width: 200px;
+    height: 30px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(15deg);
+}
+
+.ring-3 {
+    width: 220px;
+    height: 20px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-15deg);
+}
+
+/* Atmosphere Effect */
+.atmosphere {
+    position: absolute;
+    top: -10%;
+    left: -10%;
+    width: 120%;
+    height: 120%;
+    background: radial-gradient(circle at 30% 30%, 
+        rgba(255, 255, 255, 0.1),
+        transparent 70%);
+    border-radius: 50%;
+    animation: pulse 4s ease-in-out infinite;
+}
+
+/* Planet Description Styles */
+.planet-description {
+    max-width: 300px;
+    margin: 1rem auto 0;
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease;
+}
+
+.planet-container:hover .planet-description {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.planet-description p {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+.planet-facts {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.planet-facts li {
+    font-size: 0.8rem;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.planet-facts i {
+    color: #ffd700;
+    font-size: 1rem;
+}
